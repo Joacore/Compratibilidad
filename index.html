@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Compatibilidad</title>
+  <style>
+    body {
+      background-color: #f8c8dc; /* rosa pastel */
+      background-image: radial-gradient(circle, red 20%, transparent 20%),
+                        radial-gradient(circle, red 20%, transparent 20%);
+      background-size: 50px 50px;
+      background-position: 0 0, 25px 25px;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      user-select: none;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    input {
+      font-size: 20px;
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+      border-radius: 10px;
+      border: 2px solid #ff5c8a;
+    }
+
+    button {
+      font-size: 20px;
+      padding: 10px 20px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: red;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #cc0022;
+    }
+
+    .results {
+      margin-top: 20px;
+      font-size: 28px;
+      color: red;
+      font-weight: bold;
+    }
+
+    .category {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Compatibilidad del Amor ❤️</h1>
+
+    <input id="name1" type="text" placeholder="Primer nombre" />
+    <br>
+    <input id="name2" type="text" placeholder="Segundo nombre" />
+    <br>
+    <button onclick="calcular()">Calcular Compatibilidad</button>
+
+    <div id="results" class="results"></div>
+  </div>
+
+  <script>
+    function rand() {
+      return Math.floor(Math.random() * 100) + 1;
+    }
+
+    function calcular() {
+      const n1 = document.getElementById("name1").value.trim();
+      const n2 = document.getElementById("name2").value.trim();
+      const res = document.getElementById("results");
+
+      if (!n1 || !n2) {
+        res.innerHTML = "Por favor ingresa ambos nombres";
+        return;
+      }
+
+      const amor = rand();
+      const compat = rand();
+      const afinidad = rand();
+      const amistad = rand();
+      const casamiento = rand();
+
+      res.innerHTML = `
+        <div class="category">Amor ❤️: ${amor}%</div>
+        <div class="category">Compatibilidad 💘: ${compat}%</div>
+        <div class="category">Afinidad 💞: ${afinidad}%</div>
+        <div class="category">Amistad 🤝: ${amistad}%</div>
+        <div class="category">Casamiento 💍: ${casamiento}%</div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
