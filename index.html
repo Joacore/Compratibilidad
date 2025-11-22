@@ -24,43 +24,33 @@
             overflow-x: hidden;
         }
 
-        /* Corazones flotantes en el fondo */
+        /* Corazones estáticos en el fondo */
         .heart {
             position: absolute;
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             background-color: #ff4d6d;
             transform: rotate(45deg);
-            opacity: 0.7;
-            animation: float 15s infinite linear;
+            opacity: 0.3;
         }
 
         .heart:before, .heart:after {
             content: '';
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             background-color: #ff4d6d;
             border-radius: 50%;
             position: absolute;
         }
 
         .heart:before {
-            top: -10px;
+            top: -15px;
             left: 0;
         }
 
         .heart:after {
             top: 0;
-            left: -10px;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(45deg);
-            }
-            100% {
-                transform: translateY(-100px) rotate(45deg);
-            }
+            left: -15px;
         }
 
         .container {
@@ -210,8 +200,27 @@
     </style>
 </head>
 <body>
-    <!-- Corazones de fondo -->
-    <div id="hearts-container"></div>
+    <!-- Corazones de fondo estáticos -->
+    <div class="heart" style="top: 10%; left: 5%;"></div>
+    <div class="heart" style="top: 20%; left: 15%;"></div>
+    <div class="heart" style="top: 5%; left: 25%;"></div>
+    <div class="heart" style="top: 15%; left: 35%;"></div>
+    <div class="heart" style="top: 25%; left: 45%;"></div>
+    <div class="heart" style="top: 10%; left: 55%;"></div>
+    <div class="heart" style="top: 20%; left: 65%;"></div>
+    <div class="heart" style="top: 5%; left: 75%;"></div>
+    <div class="heart" style="top: 15%; left: 85%;"></div>
+    <div class="heart" style="top: 25%; left: 95%;"></div>
+    <div class="heart" style="top: 80%; left: 5%;"></div>
+    <div class="heart" style="top: 90%; left: 15%;"></div>
+    <div class="heart" style="top: 75%; left: 25%;"></div>
+    <div class="heart" style="top: 85%; left: 35%;"></div>
+    <div class="heart" style="top: 95%; left: 45%;"></div>
+    <div class="heart" style="top: 80%; left: 55%;"></div>
+    <div class="heart" style="top: 90%; left: 65%;"></div>
+    <div class="heart" style="top: 75%; left: 75%;"></div>
+    <div class="heart" style="top: 85%; left: 85%;"></div>
+    <div class="heart" style="top: 95%; left: 95%;"></div>
 
     <div class="container">
         <h1>Calculador de Compatibilidad</h1>
@@ -240,27 +249,6 @@
     </div>
 
     <script>
-        // Generar corazones de fondo
-        function createHearts() {
-            const heartsContainer = document.getElementById('hearts-container');
-            const heartCount = 15;
-            
-            for (let i = 0; i < heartCount; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                
-                // Posición y tamaño aleatorios
-                const size = Math.random() * 15 + 10;
-                heart.style.width = `${size}px`;
-                heart.style.height = `${size}px`;
-                heart.style.left = `${Math.random() * 100}vw`;
-                heart.style.animationDuration = `${Math.random() * 10 + 10}s`;
-                heart.style.animationDelay = `${Math.random() * 5}s`;
-                
-                heartsContainer.appendChild(heart);
-            }
-        }
-
         // Calcular compatibilidad
         document.getElementById('calculate-btn').addEventListener('click', function() {
             const name1 = document.getElementById('name1').value.trim();
@@ -322,9 +310,6 @@
                 document.getElementById('calculate-btn').click();
             }
         });
-
-        // Inicializar corazones de fondo
-        createHearts();
     </script>
 </body>
 </html>
